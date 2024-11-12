@@ -1,0 +1,167 @@
+/* CityTour.css */
+.city-tour {
+  text-align: center;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.686), 
+      rgba(0, 0, 0, 0.641)
+    ),
+    url('./assets/city31.jpg'); /* Replace with the URL of your background image */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Arial', sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #ff7e5f;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #f0f0f0;
+}
+
+.city-fact {
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  color: #f0f0f0;
+  font-style: italic;
+}
+/* Search Input */
+.city-search {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.1rem;
+  width: 60%;
+  max-width: 500px;
+  transition: box-shadow 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+.city-search:focus {
+  outline: none;
+  box-shadow: 0 4px 10px rgba(255, 126, 95, 0.5);
+}
+
+/* Search Button */
+button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #fe8c00, #f83600);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  font-size: 1.2rem;
+  color: #ff7e5f;
+  margin: 20px;
+  font-weight: bold;
+}
+
+/* City List */
+.city-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+/* City Button */
+.city-button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.city-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Selected City Button */
+.city-button.selected {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+}
+
+/* Carousel Styling */
+.landmark-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  margin: 2rem 0;
+  scroll-behavior: smooth;
+}
+
+.carousel-item {
+  min-width: 150px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-item p {
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.carousel-item:hover {
+  transform: scale(1.05);
+}
+
+/* Learn More Button */
+.learn-more-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  background: #ff7e5f;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.learn-more-btn:hover {
+  background: #feb47b;
+  transform: scale(1.1);
+}

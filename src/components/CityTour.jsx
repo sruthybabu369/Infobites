@@ -5,49 +5,28 @@ import '../CityTour.css';
 
 const CityTour = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [cities, setCities] = useState([]);
-  const [selectedCity, setSelectedCity] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [cityInfo, setCityInfo] = useState(null);
-  const [cityFact, setCityFact] = useState(''); // New state for city fact
-
-  const handleCitySelection = async (cityName, countryName) => {
-    setSelectedCity({ name: cityName, country: countryName });
-    setIsModalOpen(true);
-    await fetchCityInfo(cityName, countryName);
-    await fetchCityFact(cityName);  // Fetch city fact
-  };
-
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [cityImages, setCityImages] = useState([]); // State to store images from Unsplash
 
   const handleSearch = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(
-        `https://wft-geo-db.p.rapidapi.com/v1/geo/cities`,
-        {
-          params: { namePrefix: searchTerm, limit: 5 },
-          headers: {
-            'X-RapidAPI-Key': 'b96b25e0a7msha5bfc2369417048p19261djsn07e98c45dd93',
-            'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com',
-          },
-        }
-      );
-      setCities(response.data.data);
+      const searchQuery = searchTerm.trim();
+      await fetchCityInfo(searchQuery);
+      setIsModalOpen(true); // Open modal after fetching info
       setLoading(false);
     } catch (error) {
-      console.error('Error fetching cities:', error);
+      console.error('Error fetching city details:', error);
       setLoading(false);
     }
   };
 
-  const fetchCityInfo = async (cityName, countryName) => {
+  // Fetch city details from Wikipedia
+  const fetchCityInfo = async (cityName) => {
     try {
-      const searchQuery = `${cityName}, ${countryName}`;
-      const response = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/summary/${searchQuery}`);
+      const response = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/summary/${cityName}`);
       setCityInfo(response.data);
     } catch (error) {
       console.error('Error fetching city info:', error);
@@ -55,21 +34,25 @@ const CityTour = () => {
     }
   };
 
-  const fetchCityFact = async (cityName) => {
+  // Fetch images from Unsplash when "Images" button is clicked
+  const fetchCityImages = async (cityName) => {
     try {
-      const response = await axios.get(
-        `https://api.api-ninjas.com/v1/facts?city=${cityName}`,
-        {
-          headers: {
-            'X-Api-Key': 'your-api-ninja-key',
-          },
-        }
-      );
-      setCityFact(response.data.fact); // Set the random fact
+      const response = await axios.get(`https://api.unsplash.com/search/photos`, {
+        params: { query: cityName, per_page: 5 },
+        headers: {
+          Authorization: `Client-ID oQ4-m9HqQZwhReN1G4eL-EtDpDcYlQtJCoH3PEhs7pY`,
+        },
+      });
+      setCityImages(response.data.results);
     } catch (error) {
-      console.error('Error fetching city fact:', error);
-      setCityFact("No interesting fact found."); // Default message
+      console.error('Error fetching city images:', error);
+      setCityImages([]);
     }
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setCityImages([]); // Clear images when modal closes
   };
 
   return (
@@ -90,27 +73,16 @@ const CityTour = () => {
 
       {loading && <div className="loading-spinner">Loading...</div>}
 
-      <div className="city-list">
-        {cities.map((city) => (
-          <button
-            key={city.id}
-            onClick={() => handleCitySelection(city.name, city.country)}
-            className="city-button"
-          >
-            {city.name}, {city.country}
-          </button>
-        ))}
-      </div>
-
-      {selectedCity && (
+      {/* Modal for city details */}
+      {isModalOpen && (
         <Modal
           isOpen={isModalOpen}
           onClose={handleModalClose}
-          title={`Explore ${selectedCity.name}`}
-          content={cityInfo ? `${cityInfo.extract} 
-
-          ${cityFact}` : "No additional information available."}
-          imageUrl={cityInfo && cityInfo.thumbnail ? cityInfo.thumbnail.source : null}
+          title={`Explore ${cityInfo?.title || 'City'}`}
+          content={cityInfo ? cityInfo.extract : "No additional information available."}
+          imageUrl={cityInfo?.thumbnail?.source || null}
+          fetchImages={() => fetchCityImages(cityInfo?.title || searchTerm)}
+          cityImages={cityImages}
         />
       )}
     </div>

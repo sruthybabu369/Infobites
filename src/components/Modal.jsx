@@ -1,26 +1,25 @@
 import React from 'react';
-import '../Modal.css';
 
-const Modal = ({ isOpen, onClose, title, content, imageUrl }) => {
+const Modal = ({ isOpen, onClose, title, content, imageUrl, fetchImages, cityImages }) => {
   if (!isOpen) return null;
 
   return (
     <div className="modal-overlay">
       <div className="modal-content">
+        <button onClick={onClose} className="modal-close-button">&times;</button>
         <h2>{title}</h2>
+        {imageUrl && <img src={imageUrl} alt={`${title} thumbnail`} className="city-thumbnail" />}
+        <p>{content}</p>
 
-        {/* Display city image if available, with limited height */}
-        {imageUrl && <img src={imageUrl} alt="City" className="city-image" />}
+        {/* Images Button */}
+        <button onClick={fetchImages} className="images-button">Images</button>
 
-        {/* Scrollable content section */}
-        <div className="modal-body">
-          <p>{content}</p>
+        {/* Display City Images */}
+        <div className="image-gallery">
+          {cityImages.map((image) => (
+            <img key={image.id} src={image.urls.small} alt={image.alt_description} />
+          ))}
         </div>
-
-        {/* Close button */}
-        <button onClick={onClose} className="modal-close-btn">
-          Close
-        </button>
       </div>
     </div>
   );

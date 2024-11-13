@@ -19,6 +19,57 @@
   max-width: 600px;
   position: relative;
   text-align: center;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+/* Enlarged Image Overlay */
+.enlarged-image-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(20, 19, 19);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+}
+
+.enlarged-image-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.enlarged-image {
+  width: auto;
+  max-width: 95vw; /* Maximum width: 90% of the viewport width */
+  height: auto;
+  max-height: 80vh; /* Maximum height: 80% of the viewport height */
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.enlarged-image-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
 }
 
 .modal-close-button {
@@ -64,8 +115,8 @@
 }
 
 .image-gallery img {
-  width: 100px;
-  height: 80px;
+  width: 160px;
+  height: 130px;
   border-radius: 8px;
   object-fit: cover;
   transition: transform 0.3s;

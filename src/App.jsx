@@ -1,7 +1,7 @@
 // src/App.jsx
 import React from 'react';
 import NavBar from './components/NavBar';
-import CityTour from './components/CityTour';
+import InfoBites from './components/InfoBites';
 import Footer from './components/Footer';
 
 import './App.css';
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <CityTour />
+      <InfoBites />
       
       <Footer />
     </div>

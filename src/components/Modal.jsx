@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import '../Modal.css'
+import '../Modal.css';
 
-const Modal = ({ isOpen, onClose, title, content, imageUrl, fetchImages, cityImages }) => {
+const Modal = ({ isOpen, onClose, title, content, imageUrl, fetchImages, topicImages }) => {
   const [enlargedImage, setEnlargedImage] = useState(null);
 
   if (!isOpen) return null;
@@ -19,15 +19,18 @@ const Modal = ({ isOpen, onClose, title, content, imageUrl, fetchImages, cityIma
       <div className="modal-content">
         <button onClick={onClose} className="modal-close-button">&times;</button>
         <h2>{title}</h2>
-        {imageUrl && <img src={imageUrl} alt={`${title} thumbnail`} className="city-thumbnail" />}
+        
+        {/* Display Thumbnail Image */}
+        {imageUrl && <img src={imageUrl} alt={`${title} thumbnail`} className="topic-thumbnail" />}
+        
         <p>{content}</p>
 
-        {/* Images Button */}
-        <button onClick={fetchImages} className="images-button">Images</button>
+        {/* Button to Fetch More Images */}
+        <button onClick={fetchImages} className="images-button">View Gallery</button>
 
-        {/* Display City Images */}
+        {/* Display Retrieved Images */}
         <div className="image-gallery">
-          {cityImages.map((image) => (
+          {topicImages?.map((image) => (
             <img
               key={image.id}
               src={image.urls.small}
@@ -39,7 +42,7 @@ const Modal = ({ isOpen, onClose, title, content, imageUrl, fetchImages, cityIma
         </div>
       </div>
 
-      {/* Enlarged Image Modal */}
+      {/* Enlarged Image Viewer */}
       {enlargedImage && (
         <div className="enlarged-image-overlay">
           <div className="enlarged-image-content">

@@ -1,35 +1,70 @@
+/* Modal Overlay */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 1000;
 }
 
+/* Modal Content */
 .modal-content {
-  background: #a53636;
+  width: 500px; /* Fixed width */
+  max-height: 80vh; /* Prevents overflow */
+  background: rgb(24, 23, 23);
   padding: 20px;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   position: relative;
-  text-align: center;
-  max-height: 80vh;
-  overflow-y: auto;
+  overflow-y: auto; /* Scrollable content */
 }
 
-.modal-content::-webkit-scrollbar {
-  width: 8px;
+/* Close Button */
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-.modal-content::-webkit-scrollbar-thumb {
-  background-color: #ccc;
-  border-radius: 4px;
+/* Topic Thumbnail */
+.topic-thumbnail {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Image Gallery */
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  max-height: 300px; /* Limits the gallery size */
+  overflow-y: auto; /* Scrollable */
+}
+
+/* Gallery Images */
+.gallery-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.gallery-image:hover {
+  transform: scale(1.1);
 }
 
 /* Enlarged Image Overlay */
@@ -37,15 +72,16 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgb(20, 19, 19);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 1100;
 }
 
+/* Enlarged Image */
 .enlarged-image-content {
   position: relative;
   max-width: 90%;
@@ -53,75 +89,19 @@
 }
 
 .enlarged-image {
-  width: auto;
-  max-width: 95vw; /* Maximum width: 90% of the viewport width */
-  height: auto;
-  max-height: 80vh; /* Maximum height: 80% of the viewport height */
-  border-radius: 8px;
+  width: 100%;
+  max-height: 80vh;
   object-fit: contain;
 }
 
+/* Enlarged Image Close Button */
 .enlarged-image-close-button {
   position: absolute;
   top: 10px;
-  right: 10px;
-  font-size: 1.5rem;
+  right: 15px;
+  font-size: 24px;
   background: none;
   border: none;
-  color: #fff;
-  cursor: pointer;
-}
-
-.modal-close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.city-thumbnail {
-  width: 100%;
-  max-width: 300px;
-  margin-top: 1rem;
-  border-radius: 10px;
-}
-
-/* Images Button */
-.images-button {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background: #ff7e5f;
   color: white;
-  border: none;
-  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s;
-}
-
-.images-button:hover {
-  background: #feb47b;
-  transform: scale(1.05);
-}
-
-.image-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin-top: 1rem;
-}
-
-.image-gallery img {
-  width: 160px;
-  height: 130px;
-  border-radius: 8px;
-  object-fit: cover;
-  transition: transform 0.3s;
-}
-
-.image-gallery img:hover {
-  transform: scale(1.1);
 }

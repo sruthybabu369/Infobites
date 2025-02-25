@@ -1,34 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lobster&display=swap');
+
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between; /* Logo on left, tagline on right */
   align-items: center;
-  background: linear-gradient(135deg, #000000, #3a3a5d);
-  padding: 10px 0;
-  height: 60px;  /* Adjusted for better visibility */
+  background: linear-gradient(
+      rgba(101, 82, 82, 0), 
+      rgba(0, 0, 0, 0)
+    ),
+    url('./assets/infobites_3.jpg');
+  padding: 10px 30px;
+  height: 70px;
+  
 }
 
+/* Logo Styling */
 .navbar-logo {
   display: flex;
   align-items: center;
-  gap: 10px; /* Space between icon and text */
-}
-
-.info-icon {
-  font-size: 2.5rem; 
-  color: #ffd700; /* Gold color to match gradient */
 }
 
 .logo-text {
-  font-size: 2rem;
+  font-family: 'Playfair Display', sans-serif;
+  font-size: 2.3rem;
   font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  background: linear-gradient(90deg, #ff8c00, #ffd700);
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, #6c6358, #ce5682);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  transition: text-shadow 0.3s ease-in-out;
 }
 
 .logo-text:hover {
-  text-shadow: 0 0 10px rgba(255, 140, 0, 0.8);
-  transition: 0.3s ease-in-out;
+  text-shadow: 0 0 20px rgba(255, 140, 0, 0.9);
+}
+
+/* Stylized I and B */
+.stylized {
+  font-family: 'Lobster', cursive;
+  font-size: 3rem;
+  transform: rotate(-5deg);
+  text-shadow: 3px 3px 10px rgba(198, 188, 178, 0.8);
+}
+
+/* Tagline Styling */
+.tagline-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 40%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  white-space: nowrap;
+}
+
+/* Blinking Cursor */
+.cursor {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #ffd700;
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }

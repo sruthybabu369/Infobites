@@ -5,17 +5,17 @@
   justify-content: center;
   min-height: 100vh;
   position: relative;
-  color: #fff;
+  color: #815e5e;
   font-family: 'Poppins', sans-serif;
   text-align: center;
   padding: 20px;
   
   /* Background Image */
   background: linear-gradient(
-      rgba(0, 0, 0, 0.686), 
-      rgba(0, 0, 0, 0.641)
+      rgba(101, 82, 82, 0), 
+      rgba(0, 0, 0, 0)
     ),
-    url('./assets/infobites_2.jpg');
+    url('./assets/infobites_3.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -28,7 +28,7 @@ h1 {
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background: linear-gradient(90deg, #c3ac91, #e52e71);
+  background: linear-gradient(90deg, #6c6358, #ce5682);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

@@ -1,0 +1,24 @@
+.floating-mascot {
+    position: relative;
+    /* top: 10%; */
+    right: 5%;
+    width: 290px; /* Adjust size */
+    height: 220px;
+    margin-bottom: -20px;
+    padding-left: 130px;
+    animation: float 5s infinite ease-in-out;
+  }
+  
+  /* Floating effect */
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  

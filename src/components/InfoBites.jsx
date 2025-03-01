@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Modal from './Modal';
+import FloatingMascot from "./FloatingMascot"; // ✅ Import FloatingMascot
 import '../InfoBites.css'; // Renamed CSS file to match project
 
 const InfoBites = () => {
@@ -57,6 +58,8 @@ const InfoBites = () => {
 
   return (
     <div className="info-bites">
+      <FloatingMascot /> {/* ✅ Added FloatingMascot animation */}
+      
       <h1>InfoBites</h1>
       <p>Get quick insights and images on any topic!</p>
 

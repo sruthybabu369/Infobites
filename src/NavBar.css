@@ -5,12 +5,12 @@
   justify-content: space-between; /* Logo on left, tagline on right */
   align-items: center;
   background: linear-gradient(
-      rgba(101, 82, 82, 0), 
-      rgba(0, 0, 0, 0)
+      rgb(5, 4, 4), 
+      rgb(0, 0, 0)
     ),
     url('./assets/infobites_3.jpg');
   padding: 10px 30px;
-  height: 70px;
+  height: 40px;
   
 }
 
@@ -22,10 +22,10 @@
 
 .logo-text {
   font-family: 'Playfair Display', sans-serif;
-  font-size: 2.3rem;
+  font-size: 1.9rem;
   font-weight: bold;
   letter-spacing: 3px;
-  background: linear-gradient(90deg, #6c6358, #ce5682);
+  background: linear-gradient(90deg, #a9630f, #9e9792);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: text-shadow 0.3s ease-in-out;
@@ -38,9 +38,9 @@
 /* Stylized I and B */
 .stylized {
   font-family: 'Lobster', cursive;
-  font-size: 3rem;
+  font-size: 2.3 rem;
   transform: rotate(-5deg);
-  text-shadow: 3px 3px 10px rgba(198, 188, 178, 0.8);
+  text-shadow: 3px 3px 10px rgba(198, 188, 178, 0.304);
 }
 
 /* Tagline Styling */

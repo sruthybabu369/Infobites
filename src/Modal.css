@@ -5,7 +5,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,23 +16,52 @@
 .modal-content {
   width: 500px; /* Fixed width */
   max-height: 80vh; /* Prevents overflow */
-  background: rgb(24, 23, 23);
+  background: #1e1e1e;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow-y: auto; /* Scrollable content */
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Stylish Scrollbar */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(192, 190, 231, 0.501);
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
 }
 
 /* Close Button */
 .modal-close-button {
   position: absolute;
-  top: 10px;
+  top: 12px;
   right: 15px;
-  font-size: 20px;
-  background: none;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.433);
   border: none;
+  padding: 5px 10px;
+  border-radius: 50%;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-close-button:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 /* Topic Thumbnail */
@@ -41,6 +70,7 @@
   max-height: 200px;
   object-fit: cover;
   border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 /* Image Gallery */
@@ -49,22 +79,23 @@
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 10px;
-  max-height: 300px; /* Limits the gallery size */
-  overflow-y: auto; /* Scrollable */
+  max-height: 250px;
+  overflow-y: auto;
 }
 
 /* Gallery Images */
 .gallery-image {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   object-fit: cover;
   cursor: pointer;
-  border-radius: 5px;
-  transition: transform 0.2s ease-in-out;
+  border-radius: 6px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .gallery-image:hover {
   transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
 }
 
 /* Enlarged Image Overlay */
@@ -74,7 +105,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,9 +130,16 @@
   position: absolute;
   top: 10px;
   right: 15px;
-  font-size: 24px;
-  background: none;
+  font-size: 22px;
+  background: rgba(255, 255, 255, 0.2);
   border: none;
   color: white;
   cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 50%;
+  transition: background 0.3s ease-in-out;
+}
+
+.enlarged-image-close-button:hover {
+  background: rgba(255, 255, 255, 0.4);
 }

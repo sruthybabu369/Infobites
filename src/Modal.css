@@ -10,23 +10,25 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  overflow: hidden; /* Prevents background scrolling */
 }
 
 /* Modal Content */
 .modal-content {
-  width: 500px; /* Fixed width */
-  max-height: 80vh; /* Prevents overflow */
+  width: 500px;
+  max-height: 80vh;
   background: #1e1e1e;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   position: relative;
-  overflow-y: auto; /* Scrollable content */
+  overflow-y: auto; /* Scrollable content inside modal */
   color: white;
   font-family: 'Arial', sans-serif;
+  transition: transform 0.3s ease-in-out; /* Smooth transition to prevent shaking */
 }
 
-/* Stylish Scrollbar */
+/* Modal Scrollbar - Always Visible */
 .modal-content::-webkit-scrollbar {
   width: 8px;
 }
@@ -37,7 +39,7 @@
 }
 
 .modal-content::-webkit-scrollbar-thumb {
-  background: rgba(192, 190, 231, 0.501);
+  background: rgba(192, 190, 231, 0.5);
   border-radius: 10px;
 }
 
@@ -45,23 +47,22 @@
   background: rgba(255, 255, 255, 0.5);
 }
 
-/* Close Button */
+/* Minimalistic Close Button */
 .modal-close-button {
   position: absolute;
   top: 12px;
   right: 15px;
-  font-size: 18px;
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.433);
+  font-size: 22px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
   border: none;
-  padding: 5px 10px;
-  border-radius: 50%;
+  padding: 5px;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
 }
 
 .modal-close-button:hover {
-  background: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 1);
 }
 
 /* Topic Thumbnail */
@@ -80,7 +81,27 @@
   gap: 10px;
   margin-top: 10px;
   max-height: 250px;
-  overflow-y: auto;
+  overflow-y: scroll; /* Fix: Always show scrollbar */
+  padding-right: 10px; /* Prevents content shift */
+}
+
+/* Gallery Scrollbar */
+.image-gallery::-webkit-scrollbar {
+  width: 6px;
+}
+
+.image-gallery::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.image-gallery::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.image-gallery::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
 }
 
 /* Gallery Images */
@@ -110,36 +131,38 @@
   justify-content: center;
   align-items: center;
   z-index: 1100;
+  overflow: hidden; /* Prevents background from scrolling */
 }
 
-/* Enlarged Image */
+/* Enlarged Image Content */
 .enlarged-image-content {
   position: relative;
   max-width: 90%;
   max-height: 90%;
+  overflow: hidden; /* Prevents unintended scroll */
 }
 
+/* Enlarged Image */
 .enlarged-image {
   width: 100%;
   max-height: 80vh;
   object-fit: contain;
 }
 
-/* Enlarged Image Close Button */
+/* Minimalistic Enlarged Image Close Button */
 .enlarged-image-close-button {
   position: absolute;
   top: 10px;
   right: 15px;
   font-size: 22px;
-  background: rgba(255, 255, 255, 0.2);
+  background: transparent;
   border: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
-  padding: 6px 12px;
-  border-radius: 50%;
-  transition: background 0.3s ease-in-out;
+  padding: 6px;
+  transition: color 0.3s ease-in-out;
 }
 
 .enlarged-image-close-button:hover {
-  background: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 1);
 }

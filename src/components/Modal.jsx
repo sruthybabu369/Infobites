@@ -8,21 +8,23 @@ const Modal = ({ isOpen, onClose, title, content, imageUrl, fetchImages, topicIm
 
   const openEnlargedImage = (image) => {
     setEnlargedImage(image);
+    document.body.style.overflow = "hidden"; // Disable background scroll when enlarged image is open
   };
 
   const closeEnlargedImage = () => {
     setEnlargedImage(null);
+    document.body.style.overflow = "auto"; // Restore scrolling when closed
   };
 
   return (
-    <div className="modal-overlay">
+    <div className={`modal-overlay ${enlargedImage ? 'no-scroll' : ''}`}>
       <div className="modal-content">
         <button onClick={onClose} className="modal-close-button">&times;</button>
         <h2>{title}</h2>
-        
+
         {/* Display Thumbnail Image */}
         {imageUrl && <img src={imageUrl} alt={`${title} thumbnail`} className="topic-thumbnail" />}
-        
+
         <p>{content}</p>
 
         {/* Button to Fetch More Images */}
@@ -44,7 +46,7 @@ const Modal = ({ isOpen, onClose, title, content, imageUrl, fetchImages, topicIm
 
       {/* Enlarged Image Viewer */}
       {enlargedImage && (
-        <div className="enlarged-image-overlay">
+        <div className="enlarged-image-overlay" onClick={closeEnlargedImage}>
           <div className="enlarged-image-content">
             <button onClick={closeEnlargedImage} className="enlarged-image-close-button">&times;</button>
             <img src={enlargedImage.urls.regular} alt={enlargedImage.alt_description} className="enlarged-image" />

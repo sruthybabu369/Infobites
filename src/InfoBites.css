@@ -22,16 +22,16 @@
 }
 
 
-/* h1 {
-  font-size: 3rem;
+h1 {
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 10px;
-  text-transform: uppercase;
+  font-family: 'Playfair Display', sans-serif;
   letter-spacing: 2px;
-  background: linear-gradient(90deg, #6c6358, #ce5682);
+  background: linear-gradient(90deg, #9f353d, #6c6358);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-} */
+}
 
 
 
@@ -76,7 +76,7 @@ button {
 }
 
 button:disabled {
-  background: gray;
+  background: linear-gradient(90deg, #6c6358, #ce5682);
   cursor: not-allowed;
   box-shadow: none;
 }

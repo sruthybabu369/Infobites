@@ -2,10 +2,10 @@
     position: relative;
     /* top: 10%; */
     right: 5%;
-    width: 290px; /* Adjust size */
-    height: 220px;
+    width: 298px; /* Adjust size */
+    height: 222px;
     margin-bottom: -20px;
-    padding-left: 130px;
+    padding-left: 142px;
     animation: float 5s infinite ease-in-out;
   }
   

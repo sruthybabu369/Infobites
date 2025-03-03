@@ -5,12 +5,12 @@
   justify-content: space-between; /* Logo on left, tagline on right */
   align-items: center;
   background: linear-gradient(
-      rgb(5, 4, 4), 
-      rgb(0, 0, 0)
+      rgba(100, 29, 29, 0.825), 
+      rgba(0, 0, 0, 0.84)
     ),
-    url('./assets/infobites_3.jpg');
+    url('./assets/infobites_bg1.jpg');
   padding: 10px 30px;
-  height: 40px;
+  height: 35px;
   
 }
 
